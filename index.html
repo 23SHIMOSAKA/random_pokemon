@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ランダムポケモン</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">ランダムポケモン</a>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#aboutThisSite">
+                About
+            </button>
+        </div>
+    </header>
+
+    <!-- モーダルの設定 -->
+    <div class="modal fade" id="aboutThisSite" tabindex="-1" aria-labelledby="aboutThisSiteLabel">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="aboutThisSiteLabel">About</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
+            </div>
+            <div class="modal-body">
+            <p>
+                ランダムにポケモンの情報を表示します。<br>
+                名前以外はクリックすることで表示できます。<br>
+                ポケモンの情報は<a href="https://pokeapi.co/">PokéAPI</a>を使用しています。<br>
+                そのため、一部ポケモンの情報が表示されない場合があります。<br>
+                <br>
+                ポケットモンスター・ポケモン・Pokémonは任天堂・クリーチャーズ・ゲームフリークの登録商標です。
+            </p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+            </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- ロード演出 -->
+    <div id="overlay" class="overlay" style="display: none;">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only"></span>
+        </div>
+    </div>        
+
+    <!-- ポケモン情報 -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div id="pokemon-info" class="card">
+                    <div class="card-body">
+                        <h2 id="name" class="card-title">名前</h2>
+                        分類<p id="classification" class="card-text">ポケモンの分類です。</p>
+                        タイプ<p id="type" class="card-text">ポケモンのタイプです。</p>
+                        図鑑説明<p id="description" class="card-text">図鑑説明文です。</p>
+                        進化情報<p id="evolution" class="card-text">進化情報です。</p>
+                    </div>
+                </div>
+                <small class="text-body-secondary">
+                    黒い部分をクリックすることで表示・非表示を切り替えることができます。<br>
+                </small>
+                <button id="load-pokemon" class="btn btn-primary mt-3">新しいポケモンを表示</button>
+                <button id="zukan" class="btn btn-success mt-3" >
+                    ポケモンずかんで確認する
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                    </svg>
+                </button>
+                <br>
+                <button id="unmask-all" class="btn btn-secondary mt-3">すべての情報を表示</button>
+                <button id="mask-all" class="btn btn-secondary mt-3">すべての情報を非表示</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- スクリプト -->
+    <script src="script.js?date=202312271400"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+</body>
+</html>
